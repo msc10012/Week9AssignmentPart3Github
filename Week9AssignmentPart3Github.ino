@@ -36,6 +36,7 @@ void onPress(int val) {
   Serial.println(" on");
   usbMIDI.sendNoteOn(midiNotes[val], 127, 1);
   digitalWrite(ledPins[0], HIGH);
+  delay(5);
 }
 
 void onRelease(int val) {
@@ -43,4 +44,5 @@ void onRelease(int val) {
   Serial.println(" off");
   usbMIDI.sendNoteOff(midiNotes[val], 0, 1);
   digitalWrite(ledPins[0], LOW);
+  delay(5);
 }
