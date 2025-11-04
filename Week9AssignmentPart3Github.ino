@@ -5,6 +5,7 @@ int button2Pin = 29;
 int button3Pin = 30;
 int button4Pin = 31;
 int midiNotes[4] = { 60, 62, 64, 65 };
+int ledPins[4] = { 9, 10, 11, 12 };
 
 BetterButton button1(button1Pin, 0);
 BetterButton button2(button2Pin, 1);
@@ -15,7 +16,9 @@ BetterButton* buttonArray[4] = { &button1, &button2, &button3, &button4 };
 
 void setup() {
   Serial.begin(9600);
-
+  for (int i = 0; i < 4; i++) {
+  pinMode(ledPins[i], OUTPUT);
+  }
   for (int i = 0; i < 4; i++) {
     buttonArray[i]->pressHandler(onPress);
     buttonArray[i]->releaseHandler(onRelease);
